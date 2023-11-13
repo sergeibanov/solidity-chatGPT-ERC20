@@ -1,66 +1,37 @@
-## Foundry
+## ERC-20 Contract Overview
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This particular repo is the result of the third task assigned by Chat GPT. I provided the whole idea of the "Solidity Chat GPT Test Tasks Project" [in this repo](https://github.com/sergeibanov/solidity-chatGPT-task-contract). Feel free to read it. Below is the task description provided by Chat GPT:
 
-Foundry consists of:
+## Task Description
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+**Title**: Development of a Smart Contract for Creating and Managing a Simple ERC-20 Token
 
-## Documentation
+**Objective**: Craft a Solidity smart contract that implements the standard ERC-20 interface with basic token management functions, ensuring compliance with the ERC-20 standard and secure, correct function implementations.
 
-https://book.getfoundry.sh/
+**Requirements**:
 
-## Usage
+- **Data Structure**:
+  - `Token Name`
+  - `Token Symbol`
+  - `Total supply of tokens`
 
-### Build
+- **Functions**:
+  - `balanceOf(address account)` - Returns the balance of the specified address.
+  - `transfer(address recipient, uint256 amount)` - Transfers the specified amount of tokens to the recipient's address.
+  - `approve(address spender, uint256 amount)` - Sets allowance for withdrawing the specified amount of tokens.
+  - `transferFrom(address sender, address recipient, uint256 amount)` - Transfers tokens from one address to another, assuming that allowance has already been set.
+  - `allowance(address owner, address spender)` - Returns the amount of tokens that can be withdrawn from the specified address.
 
-```shell
-$ forge build
-```
+- **Events**:
+  - `Transfer(address indexed from, address indexed to, uint256 value)` - Should be generated upon tokens transfer.
+  - `Approval(address indexed owner, address indexed spender, uint256 value)` - Should be generated upon setting withdrawal allowance.
 
-### Test
+- **Additional Requirements**:
+  - Initialize the contract creator's initial balance upon deployment.
+  - Ensure that all functions securely handle errors and verify the validity of operations (e.g., insufficient balance or overflow).
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+**Evaluation Criteria**:
+- Compliance with the ERC-20 standard.
+- Security and correctness of functions.
+- Cleanliness and readability of code.
+- Correct initialization and data management in the contract.
